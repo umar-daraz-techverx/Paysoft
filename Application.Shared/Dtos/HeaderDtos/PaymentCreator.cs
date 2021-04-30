@@ -11,5 +11,6 @@ namespace Techverx.Paysoft.Dtos.HeaderDtos
         public int EmployeeId{ get; set; }
         public ServiceBatchType Service { get; set; }
         public EmployeeType ServiceType { get; set; }
+        public string Key { get; set; }
     }
 }

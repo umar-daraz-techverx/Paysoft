@@ -8,6 +8,6 @@ namespace Techverx.Paysoft.ProxyService
 {
 	public interface IProxyService
 	{
-		Task<Response> Send(string date);
+		Task<Response> Send(string date,string key);
 	}
 }

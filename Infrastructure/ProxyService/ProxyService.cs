@@ -15,13 +15,13 @@ namespace Techverx.Paysoft.ProxyService
 		{
 			_config = config ?? throw new ArgumentNullException(nameof(config));
 		}
-		public async Task<Response> Send(string data)
+		public async Task<Response> Send(string data,string key)
 		{
 			var client = new RestClient(_config["PaySoft:URL"]);
 			var request = new RestRequest(Method.POST);
 			request.AddHeader("Content-Type", _config["PaySoft:ContentType"]);
 			request.AddParameter("request", request);
-			request.AddParameter("Key", "key");
+			request.AddParameter("Key", key);
 			var response = await client.ExecuteAsync(request);
 			var serializer = new XmlSerializer(typeof(Response));
 			using TextReader reader = new StringReader(response.Content);

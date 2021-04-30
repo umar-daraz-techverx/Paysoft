@@ -34,7 +34,7 @@ namespace Techverx.Paysoft.Services
         public async Task<Response> RequestPaymentAsync(PaymentCreator input)
         {
             var request = await RequestBuilder(input);
-            var response = await _proxyService.Send(XmlRequestGenerator.Serialize(request));
+            var response = await _proxyService.Send(XmlRequestGenerator.Serialize(request),input.Key);
             if (response.Result.Equals("Error"))
             {
                 await SavePayment(2, request, response);
